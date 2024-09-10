@@ -16,6 +16,6 @@ class FollowController extends Controller
 
     public function unfollow(FollowRequest $request){
         $validated = $request->validated();
-        Follow::where(['user_id' => $validated->user_id, 'follower_id' => $validated->follower_id])->delete();
+        Follow::where(['user_id' => $validated['user_id'], 'follower_id' => $validated['follower_id']])->delete();
     }
 }

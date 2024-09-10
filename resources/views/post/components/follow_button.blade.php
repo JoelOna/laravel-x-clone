@@ -1,5 +1,5 @@
 <div>
-    <button id="follow-button" data-user-id="{{ $user->id }}" data-follower-id="{{ $isPost ? $post->user->id : $user->id }}">
+    <button id="follow-button" data-user-id="{{ $user->id ?? 0}}" data-follower-id="{{ $isPost ? $post->user->id : $near_user->id }}">
         Follow
     </button>
 </div>

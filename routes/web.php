@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Like;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -25,8 +25,8 @@ Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
 Route::post('/unfollow', [FollowController::class, 'unfollow'])->name('unfollow');
 
 //like
-Route::post('/like', [Like::class, 'store'])->name('like');
-Route::post('/unlike', [Like::class, 'delete'])->name('unlike');
+Route::post('/like', [LikeController::class, 'store'])->name('like');
+Route::post('/unlike', [LikeController::class, 'destroy'])->name('unlike');
 
 
 
