@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('user_img')->default('https://res.cloudinary.com/dzcbguuls/image/upload/v1725458854/x-clone/mlpod5igsc6qvnoelcg3.png');
+            $table->string('user_bio',100);
+            $table->string('user_name_x')->unique();
+            $table->string('user_location',100);
             $table->rememberToken();
             $table->timestamps();
         });

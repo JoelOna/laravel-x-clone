@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>X | @yield('title')</title>
     @yield('styles')
+    @stack('scripts')
     @vite('resources/css/app.css')
 </head>
-<body>
-    <body class="dark:bg-gray-800 dark:text-white">
-        @include('layout._partials.side_bar')
-        
-        <div class="container mx-auto px-4 md:px-5 lg:px-20">
+<div id="app"></div>
+<body class="dark:bg-black dark:text-white">
+    @vite('resources/js/app.js')
+    @include('layout._partials.side_bar')
+    
+    <main class="container mx-auto px-4 md:px-44 lg:px-20 grid grid-cols-2">
+        <div class="border border-red-500">
             @yield('content')
         </div>
 
-        @include('layout._partials.footer')
-    </body>
+        @include('users.near_users')
+    </main>
+
+    @include('layout._partials.footer')
 </body>
+
 </html>
