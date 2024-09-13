@@ -21,12 +21,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts/create', [PostController::class, 'store'])->name('post.store');
 });
 //follow
-Route::post('/follow', [FollowController::class, 'follow'])->name('follow');
-Route::post('/unfollow', [FollowController::class, 'unfollow'])->name('unfollow');
+Route::post('/follow', [FollowController::class, 'store'])->name('follow.store');
+Route::post('/unfollow', [FollowController::class, 'destroy'])->name('follow.destroy');
+Route::get('/follow/{user_id}/{follower_id}', [FollowController::class, 'search'])->name('follow.search');
 
 //like
-Route::post('/like', [LikeController::class, 'store'])->name('like');
-Route::post('/unlike', [LikeController::class, 'destroy'])->name('unlike');
+Route::post('/like', [LikeController::class, 'store'])->name('like.store');
+Route::post('/unlike', [LikeController::class, 'destroy'])->name('like.destroy');
+Route::get('/like/{user_id}/{post_id}', [LikeController::class, 'search'])->name('like.search');
+Route::get('/likes/{post_id}', [LikeController::class, 'post_likes'])->name('like.post_likes');
 
 
 

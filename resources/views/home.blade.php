@@ -10,8 +10,6 @@
             {{ session('message') }}
         </div>
     @endif
-    
     @include('post.create')
     @include('post.show')
-    {{-- @include('users.near_users') --}}
 @endsection

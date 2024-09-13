@@ -7,8 +7,8 @@
                     <label>{{$post->user->name}}</label>
                     <small>@ {{$post->user->user_name_x}}</small>
                 </div>
-                @include('post.components.follow_button', ['isPost' => true])
-                @include('post.components.like', ['post' => $post])
+                <follow-button :user_id="{{Auth::id() ?? 0}}" :follower_id="{{$post->user->id}}"></follow-button>
+                <like-button :user_id="{{Auth::id() ?? 0}}" :post="{{$post}}" :likes="{{count($post->likes)}}"></like-button>
             </section>
             <p class="p-4">{{$post->description}}</p>
         </article>

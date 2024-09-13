@@ -9,20 +9,20 @@
     @stack('scripts')
     @vite('resources/css/app.css')
 </head>
-<div id="app"></div>
 <body class="dark:bg-black dark:text-white">
-    @vite('resources/js/app.js')
     @include('layout._partials.side_bar')
     
-    <main class="container mx-auto px-4 md:px-44 lg:px-20 grid grid-cols-2">
-        <div class="border border-red-500">
-            @yield('content')
-        </div>
-
-        @include('users.near_users')
-    </main>
-
+    <div id="app"> <!-- Mueve el id="app" aquí -->
+        <main class="container mx-auto px-4 md:px-44 lg:px-20 grid grid-cols-2">
+            <div class="border border-red-500">
+                @yield('content')
+            </div>
+            
+            @include('users.near_users')
+        </main>
+    </div>
+    
+    @vite('resources/js/app.js')
     @include('layout._partials.footer')
 </body>
-
 </html>

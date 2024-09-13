@@ -1,7 +1,9 @@
 <section class="border border-blue-600">
     Near users to you
     @foreach ($users as $near_user)
+    <div class="flex flex-row flex-wrap">
         <p>{{$near_user->name}}</p>
-        @include('post.components.follow_button', ['isPost' => false])
+        <follow-button :user_id="{{Auth::id() ?? 0}}" follower_id="{{$near_user->id}}" />
+    </div>
     @endforeach
 </section>
