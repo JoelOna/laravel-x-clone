@@ -16,8 +16,8 @@ class HomeController extends Controller
     public function index(){
         // $posts =  Post::getUserFollowingPosts();
         $user = Auth::user();
-        $users = UserHelper::getNearUsers();
         if (is_null($user)) {
+            $users = UserHelper::getNearUsers(0);
             $posts = Post::orderBy('created_at')->limit(20)->get();
             return view('home')->with(['posts' => $posts, 'users' => $users['users']]);
         }
@@ -32,7 +32,8 @@ class HomeController extends Controller
         // Añadir la propiedad 'has_liked' a cada post
         foreach ($posts as $post) {
             $post->has_liked = in_array($post->id, $liked_posts);
-        }        
+        }
+        $users = UserHelper::getNearUsers($user->id);
         return view('home')->with(['posts' => $posts,'user' => $user, 'users' => $users['users']]);
      }
 }
