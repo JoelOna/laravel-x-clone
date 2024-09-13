@@ -13,7 +13,6 @@
     const props = defineProps({
         user_id: Number,
         post: Object,
-        likes: Number
     })
 
     let hasLike = ref(false)

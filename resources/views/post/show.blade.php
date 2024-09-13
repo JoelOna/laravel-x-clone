@@ -8,7 +8,7 @@
                     <small>@ {{$post->user->user_name_x}}</small>
                 </div>
                 <follow-button :user_id="{{Auth::id() ?? 0}}" :follower_id="{{$post->user->id}}"></follow-button>
-                <like-button :user_id="{{Auth::id() ?? 0}}" :post="{{$post}}" :likes="{{count($post->likes)}}"></like-button>
+                <like-button :user_id="{{Auth::id() ?? 0}}" :post="{{$post}}"></like-button>
             </section>
             <p class="p-4">{{$post->description}}</p>
         </article>
