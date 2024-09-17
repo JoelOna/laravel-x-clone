@@ -12,8 +12,8 @@
 <body class="dark:bg-black dark:text-white">
     @include('layout._partials.side_bar')
     
-    <div id="app"> <!-- Mueve el id="app" aquí -->
-        <main class="container mx-auto px-4 md:px-44 lg:px-20 grid grid-cols-2">
+    <div id="app">
+        <main class="container mx-auto px-4 md:px-44 lg:px-20">
             <div class="border border-red-500">
                 @yield('content')
             </div>
