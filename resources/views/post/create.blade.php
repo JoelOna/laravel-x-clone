@@ -2,8 +2,8 @@
     @csrf
     <label for="description">
         Description
-        <input type="text" name="description">
     </label>
+    <textarea type="text" name="description" placeholder="What are you thinking about?" class="w-full"></textarea>
     <button type="submit">Submit</button>
 </form>
 

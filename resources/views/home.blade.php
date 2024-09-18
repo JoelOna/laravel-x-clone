@@ -10,6 +10,10 @@
             {{ session('message') }}
         </div>
     @endif
-    @include('post.create')
-    @include('post.show')
+    <div class="w-full text-center">
+        @include('post.create')
+    </div>
+    <div class="px-10">
+        @include('post.show')
+    </div>
 @endsection

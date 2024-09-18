@@ -10,7 +10,7 @@ class ImgHelper {
         $tempPath = sys_get_temp_dir() . '/' . $img->getClientOriginalName();
         $img->move(sys_get_temp_dir(), $img->getClientOriginalName());
     
-        Configuration::instance('cloudinary://364815279846566:9b8ypzbTNsmZSgQiLhrMnUQeKiI@dzcbguuls?secure=true');
+        Configuration::instance(config('cloudinary.url'));
         try {
             $result = (new UploadApi())->upload($tempPath, [
                 'asset_folder' => 'x-clone',
