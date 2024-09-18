@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cloudinary/cloudinary_php": "^2.14",
+        "guzzlehttp/guzzle": "^7.0",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",

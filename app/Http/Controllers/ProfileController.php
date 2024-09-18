@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ImgHelper;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,6 +31,11 @@ class ProfileController extends Controller
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
+        }
+        
+        if ($request->hasFile('user_img')) {
+            $url_img = ImgHelper::uploadImage($request->file('user_img'));
+            $request->user()->user_img = $url_img;
         }
 
         $request->user()->save();

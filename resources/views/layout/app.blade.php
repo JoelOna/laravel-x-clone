@@ -13,7 +13,7 @@
     @include('layout._partials.side_bar')
     
     <div id="app">
-        <main class="container mx-auto px-4 md:px-44 lg:px-20">
+        <main class="container mx-auto px-4 md:px-44 lg:px-20 border border-green">
             <div class="border border-red-500">
                 @yield('content')
             </div>
