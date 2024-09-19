@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -27,15 +27,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts/create', [PostController::class, 'store'])->name('post.store');
 });
 //follow
-Route::post('/follow', [FollowController::class, 'store'])->name('follow.store');
-Route::post('/unfollow', [FollowController::class, 'destroy'])->name('follow.destroy');
-Route::get('/follow/{user_id}/{follower_id}', [FollowController::class, 'search'])->name('follow.search');
+require __DIR__.'/follow.php';
+
 
 //like
-Route::post('/like', [LikeController::class, 'store'])->name('like.store');
-Route::post('/unlike', [LikeController::class, 'destroy'])->name('like.destroy');
-Route::get('/like/{user_id}/{post_id}', [LikeController::class, 'search'])->name('like.search');
-Route::get('/likes/{post_id}', [LikeController::class, 'post_likes'])->name('like.post_likes');
+require __DIR__.'/like.php';
+
+//Comment
+Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
+Route::get('/post/{post_id}/comments', [CommentController::class, 'index'])->name('comment.index');
+
 
 
 
