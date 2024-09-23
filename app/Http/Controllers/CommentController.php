@@ -23,4 +23,8 @@ class CommentController extends Controller
         return $comment;
     }
 
+    public function totalComments ($post_id) {
+        return Comment::where(['post_id' => $post_id])->count();
+    }
+
 }

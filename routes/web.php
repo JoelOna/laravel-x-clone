@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,9 +36,13 @@ require __DIR__.'/like.php';
 
 //Comment
 Route::post('/comment', [CommentController::class, 'store'])->name('comment.store');
-Route::get('/post/{post_id}/comments', [CommentController::class, 'index'])->name('comment.index');
+Route::get('/comments/{post_id}', [CommentController::class, 'index'])->name('comment.index');
+Route::get('/comments/{post_id}/total', [CommentController::class, 'totalComments'])->name('comment.total');
 
 
 
+//search
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/{param}', [SearchController::class, 'search'])->name('search.search');
 
 require __DIR__.'/auth.php';

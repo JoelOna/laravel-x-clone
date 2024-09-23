@@ -13,11 +13,11 @@
     @include('layout._partials.side_bar')
     
     <div id="app">
-        <main class="overflow-x-hidden md:ms-60 lg:ms-96 px-0 border border-green-500 grid grid-cols-1 lg:grid-cols-[3fr_1fr] md:grid-cols-[2fr_1fr]">
-            <div class="border border-red-500 w-full">
+        <main class="overflow-x-hidden md:ms-60 lg:ms-96 px-0 border border-green-500 grid grid-cols-1 md:grid-cols-[3fr_1fr]">
+            <div class="border border-red-500 md:w-11/12">
                 @yield('content')
             </div>
-            <div class="border border-blue-600 w-full lg:w-auto lg:justify-self-end">
+            <div class="border border-blue-600  md:w-3/12 md:justify-self-end fixed right-0 left-0">
                 @include('users.near_users')
             </div>
         </main>
