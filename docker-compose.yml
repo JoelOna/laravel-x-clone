@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  # Servicio para la aplicación Laravel
+  app:
+    build:
+      context: .
+    container_name: x-clone-laravel
+    ports:
+      - "8080:80"  # Mapea el puerto 8080 de la máquina local al puerto 80 del contenedor
+    volumes:
+      - .:/var/www/html  # Monta el código local dentro del contenedor
+    networks:
+      - laravel-network
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=x-clone
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=sync
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CLOUDINARY_URL=cloudinary://364815279846566:9b8ypzbTNsmZSgQiLhrMnUQeKiI@dzcbguuls?secure=true
+      - CLOUDINARY_SECRET=9b8ypzbTNsmZSgQiLhrMnUQeKiI
+      - REVERB_APP_ID=627851
+      - REVERB_APP_KEY=qact30bjuzhbaon8shyw
+      - REVERB_APP_SECRET=cjktvxuvgi3sqrq5gkvy
+      - REVERB_HOST="localhost"
+      - REVERB_PORT=8080
+      - REVERB_SCHEME=http
+      - VITE_REVERB_APP_KEY="${REVERB_APP_KEY}"
+      - VITE_REVERB_HOST="${REVERB_HOST}"
+      - VITE_REVERB_PORT="${REVERB_PORT}"
+      - VITE_REVERB_SCHEME="${REVERB_SCHEME}"
+
+  # Servicio para MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: laravel-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: x-clone
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - laravel-network
+    ports:
+      - "3306:3306"
+
+  # Servicio para Redis (caché)
+  redis:
+    image: redis:latest
+    container_name: laravel-redis
+    networks:
+      - laravel-network
+    ports:
+      - "6379:6379"
+
+# Definición de las redes y volúmenes
+networks:
+  laravel-network:
+    driver: bridge
+
+volumes:
+  dbdata:
