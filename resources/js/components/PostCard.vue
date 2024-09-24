@@ -5,7 +5,7 @@
                 <img :src="[props.post.user.user_img]" alt="" class="h-14 w-14">
                 <div class="flex flex-col ml-4">
                     <label>{{props.post.user.name}}</label>
-                    <small>@ {{props.post.user.user_name_x}}</small>
+                    <small>@{{props.post.user.user_name_x}}</small>
                 </div>
                 <div class="ps-4">
                     <follow-button :user_id="props.user_id" :follower_id="props.follower_id"></follow-button>

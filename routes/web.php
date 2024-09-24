@@ -20,6 +20,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
 
 });
 
+// User
+Route::get('/user/{user_name_x}', [UserController::class, 'index'])->name('user.index');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

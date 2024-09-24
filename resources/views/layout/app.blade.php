@@ -22,7 +22,7 @@
             </div>
         </main>
     </div>
-    
+    <div id="modals"></div>
     @vite('resources/js/app.js')
     @include('layout._partials.footer')
 </body>

@@ -10,6 +10,8 @@ import SearchBar from './components/SearchBar.vue';
 import SearchResult from './components/SearchResult.vue';
 import PostCard from './components/PostCard.vue';
 import PostComment from './components/PostComment.vue';
+import 'vue-universal-modal/dist/index.css';
+import VueUniversalModal from 'vue-universal-modal';
 
 
 const app = createApp({});
@@ -23,6 +25,10 @@ app.component('UserCard',UserCard)
 app.component('SearchBar',SearchBar)
 app.component('SearchResult',SearchResult)
 app.component('PostCard',PostCard)
+
+app.use(VueUniversalModal, {
+  teleportTarget: '#modals',
+});
 app.mount('#app');
 
 window.Alpine = Alpine;

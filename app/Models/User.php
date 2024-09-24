@@ -23,7 +23,8 @@ class User extends Authenticatable
         'user_img',
         'user_bio',
         'user_name_x',
-        'user_location'
+        'user_location',
+        'background_image'
     ];
 
     /**
