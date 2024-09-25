@@ -3,7 +3,7 @@
     <label for="description">
         Description
     </label>
-    <textarea type="text" name="description" placeholder="What are you thinking about?" class="w-full"></textarea>
+    <text-area></text-area>
     <button type="submit">Submit</button>
 </form>
 

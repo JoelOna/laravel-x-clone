@@ -12,7 +12,7 @@ import PostCard from './components/PostCard.vue';
 import PostComment from './components/PostComment.vue';
 import 'vue-universal-modal/dist/index.css';
 import VueUniversalModal from 'vue-universal-modal';
-
+import TextArea from './components/TextArea.vue'
 
 const app = createApp({});
 
@@ -25,7 +25,7 @@ app.component('UserCard',UserCard)
 app.component('SearchBar',SearchBar)
 app.component('SearchResult',SearchResult)
 app.component('PostCard',PostCard)
-
+app.component('TextArea',TextArea)
 app.use(VueUniversalModal, {
   teleportTarget: '#modals',
 });
