@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('background_image')->default('https://res.cloudinary.com/dzcbguuls/image/upload/v1727171094/x-clone/background-image/hzjnpyauguzc1apdcsln.jpg');
+            $table->string('background_image')->default('https://res.cloudinary.com/dzcbguuls/image/upload/v1727171094/x-clone/background-image/hzjnpyauguzc1apdcsln.jpg')
+                                                        ->after('user_img');
         });
     }
 

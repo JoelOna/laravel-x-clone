@@ -123,12 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    // 'providers' => [
-    //     \Torann\GeoIP\GeoIPServiceProvider::class,
-    // ],
-
-    // 'aliases' => [
-    //     'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
-    // ]
 
 ];

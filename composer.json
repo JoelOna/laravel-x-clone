@@ -12,7 +12,7 @@
         "laravel/reverb": "^1.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
-        "torann/geoip": "^3.0"
+        "stevebauman/location": "^7.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

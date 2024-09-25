@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'admin',
                 'user_bio' => 'user_bio',
                 'user_name_x' => 'admin_user',
-                'user_location' => 'Barcelona'
+                'user_location' => 'Spain'
             ],
             [
                 'name' => 'Test User',
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'test',
                 'user_bio' => 'user bio test',
                 'user_name_x' => 'test_user',
-                'user_location' => 'Barcelona'
+                'user_location' => 'Spain'
             ],
             [
                 'name' => 'Test User 2',
@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'test',
                 'user_bio' => 'user bio test 2',
                 'user_name_x' => 'test2_user',
-                'user_location' => 'Madrid'
+                'user_location' => 'France'
             ],
             [
                 'name' => 'Test User 3',
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
                 'password' => 'test',
                 'user_bio' => 'user bio test 3',
                 'user_name_x' => 'test3_user',
-                'user_location' => 'Madrid'
+                'user_location' => 'Italy'
             ],
         ];
 
