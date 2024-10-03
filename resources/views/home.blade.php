@@ -13,7 +13,7 @@
     <div class="w-full text-center">
         @include('post.create')
     </div>
-    <div class="px-10">
+    <div>
         @include('post.show')
     </div>
 @endsection

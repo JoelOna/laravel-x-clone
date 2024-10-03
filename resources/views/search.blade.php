@@ -14,13 +14,4 @@
     <div class="w-full text-center">
         <search-bar></search-bar>
     </div>
-    {{-- <div class="px-10">
-        @include('users.user',['users' => $users,'follow_button' => true, 'multiple' => true])
-        <br>
-        @include('post.show',['posts' => $posts])
-        <br>
-        comments
-        {{$comments}}
-
-    </div> --}}
 @endsection

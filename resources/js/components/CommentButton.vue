@@ -13,6 +13,37 @@
           <button @click="closeModal">close</button>
         </div>
       </Modal>
+      <!-- <div data-modal-target="default-modal" data-modal-toggle="default-modal" class="p-4 flex flex-wrap gap-1">
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-message-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></svg>
+        {{ totalComments }}
+      </div>
+      
+      <!-- Main modal -->
+      <!-- <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"> -->
+          <!-- <div class="relative p-4 w-full max-w-2xl max-h-full"> -->
+              <!-- Modal content -->
+              <!-- <div class="relative bg-white rounded-lg shadow dark:bg-gray-700"> -->
+                  <!-- Modal header -->
+                  <!-- <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"> -->
+                      <!-- <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div> -->
+                  <!-- Modal body -->
+                  <!-- <div :class="['transition-all','hover:transition-all']">
+                    <text-area :name="'comment'" v-model="comment"></text-area>
+                    <post-comments :post_id="props.post_id" :action="updateAction"></post-comments>
+                </div> -->
+                  <!-- Modal footer -->
+                  <!-- <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                      <button @click="submmitComment" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I accept</button>
+                  </div>
+              </div>
+          </div>
+      </div>  -->
 
 </template>
 

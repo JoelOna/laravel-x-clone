@@ -7,7 +7,7 @@
     <title>X | @yield('title')</title>
     @yield('styles')
     @stack('scripts')
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="dark:bg-black dark:text-white">
     @include('layout._partials.side_bar')
@@ -17,7 +17,7 @@
             <div class="border border-red-500 md:w-11/12">
                 @yield('content')
             </div>
-            <div class="border border-blue-600  md:w-3/12 md:justify-self-end fixed right-0 left-0">
+            <div class="border border-blue-600  hidden md:block md:w-3/12 md:justify-self-end fixed right-0 left-0">
                 @include('users.near_users')
             </div>
         </main>

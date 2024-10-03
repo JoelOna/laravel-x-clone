@@ -2,8 +2,8 @@
 FROM php:8.2-apache
 
 # Instala la extensión Redis
-RUN pecl install redis \
-    && docker-php-ext-enable redis
+# RUN pecl install redis \
+#     && docker-php-ext-enable redis
 
 # Instalar dependencias del sistema, incluyendo Node.js y npm
 RUN apt-get update && apt-get install -y \

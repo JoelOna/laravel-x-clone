@@ -15,7 +15,7 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
-        <div class="grid grid-cols-3 gap-6 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             <section class="min-w-0">
                 <div class="mb-4">
                     <x-input-label for="name" :value="__('Name')" />
@@ -67,21 +67,28 @@
                 </div>
          
             </section>
-            <section>
-                <div>
-                    <x-input-label for="user_img" :value="__('User Image')" />
-                    <x-upload-img id="user_img" name="user_img" class="mt-1 block w-full"
-                        :src="old('user_img', $user->user_img)" autofocus autocomplete="user_img" />
-                    <x-input-error class="mt-2" :messages="$errors->get('user_img   ')" />
-                </div>
-            </section>
-            <div class="flex items-center gap-4">
-                <x-primary-button>{{ __('Save') }}</x-primary-button>
-                @if (session('status') === 'profile-updated')
-                    <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                        class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
-                @endif
+           
+        </div>
+        <section class="gird grid-cols-2">
+            <div>
+                <x-input-label for="background_image" :value="__('User background image')" />
+                <x-upload-img id="background_image" name="background_image" class="mt-1 block w-full" :img_class="'w-8/12 h-42 rounded-sm border border-gray-700 object-contain mx-auto'"
+                    :src="old('background_image', $user->background_image)" autofocus autocomplete="background_image" />
+                <x-input-error class="mt-2" :messages="$errors->get('background_image')" />
             </div>
+            <div>
+                <x-input-label for="user_img" :value="__('User Image')" />
+                <x-upload-img id="user_img" name="user_img" class="mt-1 block w-full" :img_class="'w-36 h-36 rounded-full border border-gray-700 object-contain'"
+                    :src="old('user_img', $user->user_img)" autofocus autocomplete="user_img" />
+                <x-input-error class="mt-2" :messages="$errors->get('user_img')" />
+            </div>
+        </section>
+        <div class="flex items-center gap-4">
+            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            @if (session('status') === 'profile-updated')
+                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                    class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+            @endif
         </div>
     </form>
 </section>

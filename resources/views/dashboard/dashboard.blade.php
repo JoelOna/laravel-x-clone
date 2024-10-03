@@ -1,7 +1,8 @@
 @extends('dashboard.layout.main')
 
 @section('content')
-<div class="p-6 text-gray-900 dark:text-gray-100">
+<section class="p-6">
+<div class="text-gray-900 dark:text-gray-100 text-2xl">
     Welcome {{$user->name}}!
  </div>
     <h2>
@@ -10,10 +11,10 @@
     <div class="p-6 text-gray-900 dark:text-gray-100">
         @if (count($likes) > 0)
             @include('post.show', ['posts' => $likes])
+            <a href="{{route('dashboard.likes')}}">View more</a>
         @else
             No likes
         @endif
-        <a href="{{route('dashboard.likes')}}">View more</a>
     </div>
     <h2>
         Your posts
@@ -21,31 +22,32 @@
     <div class="p-6 text-gray-900 dark:text-gray-100">
         @if (count($posts) > 0)
             @include('post.show', ['posts' => $posts])
+            <a href="{{route('dashboard.posts')}}">View more</a>
         @else
-            No posts published
+            No posts published yet!
         @endif
-        <a href="{{route('dashboard.posts')}}">View more</a>
     </div>
     <h2>
-        Your followers
+        Followers
     </h2>
     <div class="p-6 text-gray-900 dark:text-gray-100">
         @if (count($followers) > 0)
             @include('users.user', ['multiple' => true, 'users' => $followers])
+            <a href="{{route('dashboard.followers')}}">View more</a>
         @else
-            No followers
+            0 followers
         @endif
-        <a href="{{route('dashboard.followers')}}">View more</a>
     </div>
     <h2>
-        You are following
+        Following
     </h2>
     <div class="p-6 text-gray-900 dark:text-gray-100">
         @if (count($following) > 0)
             @include('users.user', ['multiple' => true, 'users' => $following])
+            <a href="{{route('dashboard.following')}}">View more</a>
         @else
-            No following
+            0 following
         @endif
-        <a href="{{route('dashboard.following')}}">View more</a>
     </div>
+</section>
 @endsection

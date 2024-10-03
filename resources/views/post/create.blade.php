@@ -1,9 +1,6 @@
 <form action="{{route('post.store')}}" method="post">
     @csrf
-    <label for="description">
-        Description
-    </label>
-    <text-area></text-area>
+    <text-area :name="'description'"></text-area>
     <button type="submit">Submit</button>
 </form>
 
