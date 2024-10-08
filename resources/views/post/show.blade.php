@@ -1,6 +1,6 @@
 <div>
     @foreach ($posts as $post)
-        <article class="border border-white">
+        <article class="border">
             @include('users.user',['user' => $post->user,'follow_button' => true])
             <p class="p-4">{!!$post->description!!}</p>
             <section class="flex flex-wrap justify-center border-t">

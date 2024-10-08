@@ -23,7 +23,7 @@
         }
     }
 
-    const message = computed(() => isFollowing.value ? 'Siguiendo' : 'Seguir');
+    const message = computed(() => isFollowing.value ? 'Following' : 'Follow');
 
     const handleCick = async () => {
         if (props.user_id > 0 && !isFollowing.value) {

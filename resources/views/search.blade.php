@@ -11,7 +11,7 @@
         </div>
     @endif
     <search-result :user_id="{{Auth::id() ?? 0}}" :users="{{$users}}" :posts="{{$posts}}" :comments="{{$comments}}"/>
-    <div class="w-full text-center">
+    <div class="w-full">
         <search-bar></search-bar>
     </div>
 @endsection

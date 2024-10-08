@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CommentRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -19,8 +20,11 @@ class CommentController extends Controller
 
     public function store(CommentRequest $request){
         $validated = $request->validated();
-        $comment = Comment::create($validated);
-        return $comment;
+        if (Auth::check()) {
+            $comment = Comment::create($validated);
+            return $comment;
+        }
+       return response()->json(['message' => 'You have to be logged!'],403);
     }
 
     public function totalComments ($post_id) {

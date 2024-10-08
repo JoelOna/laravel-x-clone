@@ -20,7 +20,7 @@
             <div class="flex flex-wrap">
                 <div class="flex flex-col ml-4 place-content-center">
                     <label class="text-2xl">{{ $user->name }}</label>
-                    <small>@ {{ $user->user_name_x }}</small>
+                    <small>{{'@'.$user->user_name_x }}</small>
                 </div>
                 <div class="mx-4 place-content-center">
                     <follow-button :user_id="{{ Auth::id() ?? 0 }}" follower_id="{{ $user->id }}"

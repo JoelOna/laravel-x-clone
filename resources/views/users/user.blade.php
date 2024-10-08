@@ -7,7 +7,7 @@
                     <div class="flex flex-col ml-4">
                         <label>{{$user->name}}</label>
                         <a href={{ route('user.index', ['user_name_x'=> $user->user_name_x]) }}>
-                            <small>@ {{$user->user_name_x}}</small>
+                            <small>{{'@'.$user->user_name_x }}</small>
                         </a>
                     </div>
                     @if (isset($follow_button) && $follow_button)
@@ -27,7 +27,7 @@
             <div class="flex flex-col ml-4">
                 <label>{{$user->name}}</label>
                 <a href={{ route('user.index', ['user_name_x'=> $user->user_name_x]) }}>
-                    <small>@ {{$user->user_name_x}}</small>
+                    <small>{{'@'.$user->user_name_x }}</small>
                 </a>
             </div>
             @if (isset($follow_button) && $follow_button)
