@@ -1,10 +1,6 @@
 # Usar la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Instala la extensión Redis
-# RUN pecl install redis \
-#     && docker-php-ext-enable redis
-
 # Instalar dependencias del sistema, incluyendo Node.js y npm
 RUN apt-get update && apt-get install -y \
     git \
@@ -44,8 +40,12 @@ WORKDIR /var/www/html
 # Copiar el contenido del proyecto
 COPY . .
 
+# Instalar dependencias de Composer
+RUN composer install --optimize-autoloader --no-dev
+
 # Instalar dependencias de npm y ejecutar npm build
 RUN npm install && npm run build
+
 # Asignar permisos a la carpeta de almacenamiento y cache
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
