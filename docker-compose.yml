@@ -41,7 +41,13 @@ services:
       - VITE_REVERB_HOST="${REVERB_HOST}"
       - VITE_REVERB_PORT="${REVERB_PORT}"
       - VITE_REVERB_SCHEME="${REVERB_SCHEME}"
-
+  command: >
+        /bin/sh -c "
+          composer install && 
+          npm install && npm run build && 
+          php artisan migrate --force && 
+          php artisan db:seed --force && 
+          apache2-foreground"
   # Servicio para MySQL
   mysql:
     image: mysql:8.0
