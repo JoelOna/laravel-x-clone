@@ -14,9 +14,8 @@ services:
       - laravel-network
     depends_on:
       - mysql
-      - redis
     environment:
-      - APP_ENV=local
+      - APP_ENV=staging
       - APP_DEBUG=true
       - APP_KEY=${APP_KEY}
       - DB_CONNECTION=mysql
@@ -25,8 +24,8 @@ services:
       - DB_DATABASE=x-clone
       - DB_USERNAME=root
       - DB_PASSWORD=root
-      - CACHE_DRIVER=redis
-      - SESSION_DRIVER=redis
+      - CACHE_DRIVER=file
+      - SESSION_DRIVER=file
       - QUEUE_CONNECTION=sync
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -57,14 +56,6 @@ services:
     ports:
       - "3306:3306"
 
-  # Servicio para Redis (caché)
-  redis:
-    image: redis:latest
-    container_name: laravel-redis
-    networks:
-      - laravel-network
-    ports:
-      - "6379:6379"
 
 # Definición de las redes y volúmenes
 networks:
