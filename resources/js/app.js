@@ -10,12 +10,24 @@ import SearchBar from './components/SearchBar.vue';
 import SearchResult from './components/SearchResult.vue';
 import PostCard from './components/PostCard.vue';
 import PostComment from './components/PostComment.vue';
-import 'vue-universal-modal/dist/index.css';
 import VueUniversalModal from 'vue-universal-modal';
 import TextArea from './components/TextArea.vue';
+import ChatComponent from './components/ChatComponent.vue';
 import 'flowbite';
+import 'vue-universal-modal/dist/index.css';
 
-const app = createApp({});
+const app = createApp({
+    data() {
+        return {
+            selectedChat: null,
+        };
+    },
+    methods: {
+        selectChat(chat) {
+            this.selectedChat = chat;
+        },
+    },
+});
 
 app.component('FollowButton', FollowButton);
 app.component('LikeButton',LikeButton)
@@ -27,6 +39,7 @@ app.component('SearchBar',SearchBar)
 app.component('SearchResult',SearchResult)
 app.component('PostCard',PostCard)
 app.component('TextArea',TextArea)
+app.component('ChatComponent',ChatComponent)
 app.use(VueUniversalModal, {
   teleportTarget: '#modals',
 });
