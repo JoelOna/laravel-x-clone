@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="flex flex-col justify-end h-80">
+        <div class="flex flex-col justify-end h-screen md:h-4/6 lg:h-4/5">
             <div ref="messagesContainer" class="p-4 overflow-y-auto max-h-fit">
                 <div
                     v-for="message in messages"
@@ -34,7 +34,7 @@
             >
                 Send
             </button>
-        </div>
+        </div>π
         <small v-if="isFriendTyping" class="text-gray-700">
             {{ friend.name }} is typing...
         </small>
