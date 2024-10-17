@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ChatController;
+use App\Models\User;
+use App\Events\MessageSent;
+use App\Models\ChatMessage;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -49,3 +53,8 @@ Route::get('/search', [SearchController::class, 'index'])->name('search.index');
 Route::get('/search/{param}', [SearchController::class, 'search'])->name('search.search');
 
 require __DIR__.'/auth.php';
+
+Route::get('/chat', [ChatController::class,'index'] )->middleware(['auth'])->name('chat');
+Route::get('/messages/{user_name_x}', [ChatController::class,'getMessages'])->middleware(['auth']);
+Route::post('/messages/{user_name_x}', [ChatController::class,'sendMessage']);
+
