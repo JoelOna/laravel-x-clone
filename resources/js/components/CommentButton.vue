@@ -83,7 +83,7 @@
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
-const comment = ref('test componentee ref');
+const comment = ref('What are youn thinking?');
 const props = defineProps({
   user_id: Number,
   post_id: Number,
