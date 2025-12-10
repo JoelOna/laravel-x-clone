@@ -47,6 +47,7 @@ services:
           npm install && npm run build && 
           php artisan migrate --force && 
           php artisan db:seed --force && 
+          php artisan reverb:start &&
           apache2-foreground"
   # Servicio para MySQL
   mysql:
